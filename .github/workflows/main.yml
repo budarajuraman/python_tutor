@@ -25,7 +25,7 @@ jobs:
       - name: Run Backend Server
         run: |
           cd Backend        # Navigate to the backend directory (if it's separate)
-          npm install
+          npm install nodemon
           npm run start &    # Start the backend server in the background
 
       - name: Run Frontend Server (Vite)
