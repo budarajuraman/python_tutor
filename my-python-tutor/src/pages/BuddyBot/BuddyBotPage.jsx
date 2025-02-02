@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./BuddyBotPage.css";
 import { useNavigate } from "react-router-dom";
+import ReactMarkdown from 'react-markdown';
 
 const BuddyBotPage = () => {
   const [messages, setMessages] = useState([]);
@@ -70,7 +71,7 @@ const BuddyBotPage = () => {
           ) : (
             messages.map((msg, index) => (
               <div key={index} className={`chat-message ${msg.sender}-message`}>
-                {msg.text}
+                <ReactMarkdown>{msg.text}</ReactMarkdown>
               </div>
             ))
           )}

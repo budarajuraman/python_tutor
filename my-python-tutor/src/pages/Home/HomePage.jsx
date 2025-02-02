@@ -43,13 +43,11 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      {/* Header */}
       <header className="header">
         <h1 className="logo"> PyCrew</h1>
         <button className="settings-icon" onClick={() => setShowConfig(!showConfig)}>⚙️</button>
       </header>
 
-      {/* Main Content */}
       <div className="welcome-section">
         <h2>🤖 Join <span className="pycrew">PyCrew</span> and Start Your Python Journey!</h2>
         <p>
@@ -59,13 +57,15 @@ const HomePage = () => {
         <a className="choose-companion">✨ Choose your coding companion below</a>
       </div>
 
-      {/* App Description (Initially Hidden) */}
+      {/* Website Description (Initially Hidden) */}
       {showDescription && (
         <div className="app-description">
           {/* Purpose */}
           <div className="app-purpose">
             <h2>Purpose</h2>
             <p>
+              Our AI-powered Python tutor is designed to make coding accessible and exciting for kids. 
+              Through interactive storytelling assesment, AI-driven assistance. children can grasp Python fundamentals in a fun and intuitive way.
             </p>
           </div>
 
@@ -73,7 +73,11 @@ const HomePage = () => {
           <div className="app-features">
             <h2>Unique Features</h2>
             <ul>
-              
+              <li><strong>BuddyBot (AI Doubt Solver) :</strong> Provides instant answers and explanations to coding queries.</li>
+              <li><strong>Professor Py (Guided Learning):</strong> Structured Python learning modules with progressive difficulty.</li>
+              <li><strong>Customizable coding comapanion:</strong> Kids can personalize their AI mentor based on their interests.</li>
+              <li><strong>Story-based assessment :</strong>  Kids can apply their learning in an exciting narrative-driven challenge. This immersive approach keeps them motivated while reinforcing key coding concepts in a fun and engaging way</li>. 
+              <li><strong>Configure own API key:</strong> users can configure their own API key in the settings to prevent disruptions due to quota limits.</li>
             </ul>
           </div>
 
@@ -81,12 +85,18 @@ const HomePage = () => {
           <div className="app-design">
             <h2>Design Approach</h2>
             <p>
+              Our platform is designed with a kid-friendly interface, ensuring intuitive navigation, 
+              engaging visuals, and interactive elements. After completing Python concept modules, 
+              kids can participate in a <strong>story-based assessment</strong>, where they apply their 
+              learning in an exciting narrative-driven challenge. This immersive approach keeps them 
+              motivated while reinforcing key coding concepts in a fun and engaging way.  
+              I utilize the <strong>Groq API</strong> for AI-driven interactions. Additionally, 
+              users can configure their own API key in the settings to prevent disruptions due to quota limits.
             </p>
           </div>
         </div>
       )}
 
-      {/* Tutor Selection */}
       <div className="tutor-selection">
         <div className="tutor-card" onClick={handleProfessorClick}>
           <img src={images.PyImage} alt="Python_tutor" />
@@ -99,6 +109,7 @@ const HomePage = () => {
           <p>A magical bot who turns complex code into simple spells!</p>
         </div>
       </div>
+
       {/* Learn More Button */}
       <div className="learn-more-section">
         <button className="learn-more-btn" onClick={() => setShowDescription(!showDescription)}>
@@ -112,7 +123,7 @@ const HomePage = () => {
           <button className="back-button" onClick={() => setShowConfig(false)}> Back</button>
           <h3>API Configuration</h3>
           <label>Groq API Key</label>
-          <input type="text" value={apiKey} onChange={(e) => setApiKey(e.target.value)} placeholder="Enter API Key" />
+          <input type="text" value={apiKey} onChange={(e) => setApiKey(e.target.value)} placeholder="Enter API Key with quotes" />
           <button onClick={saveConfiguration}>Save Configuration</button>
         </div>
       )}

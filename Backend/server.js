@@ -14,9 +14,9 @@ app.use(express.json());
 const llm = new ChatGroq({
   model: "mixtral-8x7b-32768",
   temperature: 0.7,
-  maxTokens: 100,
+  maxTokens: 10000,
   maxRetries: 2,
-  apiKey: process.env.GROQ_API_KEY  // Ensure you set this in .env file
+  apiKey: process.env.GROQ_API_KEY
 });
 
 const topics = {
@@ -195,7 +195,6 @@ dotenv.config();
 app.post("/update-config", (req, res) => {
   const { apiKey } = req.body;
 
-  // Path to the .env file
   const envFilePath = path.resolve(__dirname, ".env");
 
   // Read the current .env file
@@ -221,11 +220,9 @@ app.post("/update-config", (req, res) => {
 
       // Reload .env to reflect changes
       dotenv.config();
-
-      // Return the updated GROQ_API_KEY as part of the response body
       res.status(200).send({
         message: "Configuration updated successfully.",
-        apiKey: process.env.GROQ_API_KEY, // Send the updated API key back in the response
+        apiKey: process.env.GROQ_API_KEY,
       });
     });
   });
