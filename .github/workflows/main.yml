@@ -21,17 +21,17 @@ jobs:
         with:
           node-version: '16'   # Specify the Node.js version
 
-      - name: Install dependencies
-        run: npm install   # or yarn install if you're using Yarn
 
       - name: Run Backend Server
         run: |
           cd Backend        # Navigate to the backend directory (if it's separate)
+          npm install
           npm run start &    # Start the backend server in the background
 
       - name: Run Frontend Server (Vite)
         run: |
           cd my-python-tutor       # Navigate to the frontend directory (if it's separate)
+          npm install
           npm run dev &      # Start the Vite server in the background
 
       - name: Additional steps or deployment (Optional)
